@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Avatar from './Avatar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -19,6 +20,7 @@ export default function Posts({ title }) {
           return (
             <Row>
               <Col>
+                <Avatar type="onlyimage" size="40" />
                 <h1>
                   <Link to="">{item.title}</Link>
                 </h1>
