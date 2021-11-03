@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import { Topics, Avatar, Carousel, Tabs } from './components/index';
+import { Topics, Avatar, Carousel, ProjectTabs } from './components/index';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default function App() {
@@ -32,7 +32,7 @@ export default function App() {
             return <Avatar user={item} type="onlyimage"/>;
           })}
         <Topics />
-        <Tabs/>
+        <ProjectTabs/>
         <h1>Recommended Topics</h1>
         <Topics/>
         <h1>Who to follow</h1>

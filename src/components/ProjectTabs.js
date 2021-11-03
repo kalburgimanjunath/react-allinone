@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 export default function Tabs({ newComponent }) {
   const [key, setKey] = useState('home');
+  console.log('new component');
 
   return (
     <Tabs
@@ -12,13 +14,13 @@ export default function Tabs({ newComponent }) {
       className="mb-3"
     >
       <Tab eventKey="home" title="Home">
-        <newComponent />
+        {/* <newComponent /> */}1
       </Tab>
       <Tab eventKey="profile" title="Profile">
-        <newComponent />
+        {/* <newComponent /> */}2
       </Tab>
       <Tab eventKey="contact" title="Contact" disabled>
-        <newComponent />
+        {/* <newComponent /> */}3
       </Tab>
     </Tabs>
   );
