@@ -10,8 +10,8 @@ export default function Carousel({ data, urls }) {
   };
   const captionItem = data.map((item) => {
     return (
-      <Carousel.Item>
-        <Carousel.Caption>
+      <Carousel.Item className="text-danger">
+        <Carousel.Caption className="text-danger">
           <p className="text-danger">{item}</p>
           {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
         </Carousel.Caption>

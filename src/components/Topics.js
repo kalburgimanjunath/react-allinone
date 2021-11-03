@@ -17,7 +17,7 @@ export default function Topics() {
         {topics.map((item) => {
           return (
             <Link to="#">
-              <Badge as="span" pill bg="light" text="dark">
+              <Badge as="span" pill bg="primary" text="light">
                 {item.toUpperCase()}
               </Badge>
             </Link>
