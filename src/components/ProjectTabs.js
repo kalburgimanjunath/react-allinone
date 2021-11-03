@@ -8,20 +8,44 @@ export default function Tabs({ newComponent, type }) {
   console.log(type);
 
   return (
-    <Tabs
-      id="controlled-tab-example"
-      activeKey={key}
-      onSelect={(k) => setKey(k)}
-      className="mb-3"
-    >
-      <Tab eventKey="home" title="Following ">
-        {/* <newComponent /> */}
-        <Post title="Following" />
-      </Tab>
-      <Tab eventKey="profile" title="Recommended For You">
-        {/* <newComponent /> */}
-        <Post title="Recommended For You" />
-      </Tab>
-    </Tabs>
+    <>
+      {type == 'inner' ? (
+        <Tabs
+          id="controlled-tab-example"
+          activeKey={key}
+          onSelect={(k) => setKey(k)}
+          className="mb-3"
+        >
+          <Tab eventKey="trending" title="Trending ">
+            {/* <newComponent /> */}
+            <Post title="Trending" />
+          </Tab>
+          <Tab eventKey="latest" title="Latest">
+            {/* <newComponent /> */}
+            <Post title="Latest" />
+          </Tab>
+          <Tab eventKey="best" title="Best">
+            {/* <newComponent /> */}
+            <Post title="Best" />
+          </Tab>
+        </Tabs>
+      ) : (
+        <Tabs
+          id="controlled-tab-example"
+          activeKey={key}
+          onSelect={(k) => setKey(k)}
+          className="mb-3"
+        >
+          <Tab eventKey="home" title="Following ">
+            {/* <newComponent /> */}
+            <Post title="Following" />
+          </Tab>
+          <Tab eventKey="profile" title="Recommended For You">
+            {/* <newComponent /> */}
+            <Post title="Recommended For You" />
+          </Tab>
+        </Tabs>
+      )}
+    </>
   );
 }
