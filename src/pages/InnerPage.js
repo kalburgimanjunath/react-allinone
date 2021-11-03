@@ -1,4 +1,7 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import {
   Header,
@@ -11,5 +14,12 @@ import {
 } from '../components/index';
 
 export default function InnerPage({ topics, users }) {
-  return <Post title="text" />;
+  return (
+    <>
+      <Post title="text" />
+      <Row>
+        <ProjectTabs type="inner" />
+      </Row>
+    </>
+  );
 }

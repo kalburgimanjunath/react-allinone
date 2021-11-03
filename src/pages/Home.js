@@ -9,7 +9,7 @@ import {
   Avatar,
   Carousel,
   ProjectTabs,
-  Posts,
+  Posts
 } from '../components/index';
 
 

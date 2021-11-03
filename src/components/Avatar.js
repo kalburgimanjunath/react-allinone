@@ -24,7 +24,7 @@ export default function Avatar({ user, size, ...data }) {
       // 4. Setting *photos* to the image url that we received from the response above
       .then((data) => setUser(data));
   }, []);
-  console.log(userData);
+  // console.log(userData);
   let { type } = data;
   return (
     <>

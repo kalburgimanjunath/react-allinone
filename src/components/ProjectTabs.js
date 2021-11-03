@@ -3,9 +3,9 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Post from './Posts';
 
-export default function Tabs({ newComponent }) {
+export default function Tabs({ newComponent, type }) {
   const [key, setKey] = useState('home');
-  // console.log('new component');
+  console.log(type);
 
   return (
     <Tabs
