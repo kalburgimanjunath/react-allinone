@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch, useParams } from 'react-router-dom';
 import Badge from 'react-bootstrap/Badge';
 export default function Topics() {
   const topics = [
@@ -11,12 +11,13 @@ export default function Topics() {
     'topic6',
     'topic7',
   ];
+  let match = useRouteMatch();
   return (
     <div>
       <div>
         {topics.map((item) => {
           return (
-            <Link to="#">
+            <Link to={`/tags/:${item}`}>
               <Badge as="span" pill bg="primary" text="light">
                 {item.toUpperCase()}
               </Badge>

@@ -5,7 +5,7 @@ import Post from './Posts';
 
 export default function Tabs({ newComponent }) {
   const [key, setKey] = useState('home');
-  console.log('new component');
+  // console.log('new component');
 
   return (
     <Tabs
