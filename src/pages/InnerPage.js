@@ -18,7 +18,20 @@ export default function InnerPage({ topics, users }) {
     <>
       <Post title="text" />
       <Row>
-        <ProjectTabs type="inner" />
+        <Col>
+          <ProjectTabs type="inner" />
+        </Col>
+        <Col>
+          <Col>
+            <h3>RELATED TOPICS</h3>
+            <Topics />
+            <h3>TOP WRITERS</h3>
+            {users &&
+              users.map((item) => {
+                return <Avatar user={item} type="details" />;
+              })}
+          </Col>
+        </Col>
       </Row>
     </>
   );

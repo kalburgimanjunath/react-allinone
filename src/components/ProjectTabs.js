@@ -4,7 +4,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Post from './Posts';
 
 export default function Tabs({ newComponent, type }) {
-  const [key, setKey] = useState('home');
+  const [key, setKey] = useState('trending');
   console.log(type);
 
   return (
