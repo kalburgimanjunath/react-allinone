@@ -23,6 +23,7 @@ import Col from 'react-bootstrap/Col';
 import * as data from './data/data.js';
 import Home from './pages/Home';
 import InnerPage from './pages/InnerPage';
+import Airtable from './pages/Airtable';
 export default function App() {
   let [users, setusers] = useState(null);
   // const {topics} = data;
@@ -57,6 +58,9 @@ export default function App() {
         <Switch>
           <Route path="/tags">
             <InnerPage topics={topics} users={users} />
+          </Route>
+          <Route path="/airtable" exact>
+            <Airtable />
           </Route>
           <Route path="/" exact>
             <Home topics={topics} users={users} />
