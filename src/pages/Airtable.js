@@ -33,15 +33,30 @@ export default function Airtable() {
       </li>
     );
   };
+  const ListPosts = ({ item }) => {
+    return (
+      <li>
+        <div>{item.Title}</div>
+        <div>{item.Category}</div>
+        <div>{item.Content}</div>
+      </li>
+    );
+  };
   return (
     <div>
       Airtable
+      <h1>Users</h1>
       {users &&
         users.map((item) => {
           // console.log(item);
           return <ListItem item={item.fields} key={item.id} />;
         })}
-      {/* {users ? <ListItem /> : null} */}
+      <h1>Posts</h1>
+      {posts &&
+        posts.map((item) => {
+          // console.log(item);
+          return <ListPosts item={item.fields} key={item.id} />;
+        })}
     </div>
   );
 }
