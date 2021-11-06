@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Avatar } from './components/Avatar';
 import { Counter } from '../features/counter/Counter';
-import { UserPhoto } from '../core/UserPhoto';
+import UserPhoto from '../core/UserPhoto';
 
 export default function Airtable() {
   const [users, setUser] = useState(null);
@@ -71,7 +71,7 @@ export default function Airtable() {
           return (
             <div>
               <ListItem item={item.fields} key={item.id} />
-              <UserPhoto user={item.fields.photo} />
+              <UserPhoto user={item.fields} />
               <Counter />
             </div>
           );
