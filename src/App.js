@@ -9,6 +9,7 @@ import {
   Posts,
   Footer,
 } from './components/index';
+import { Provider } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -16,6 +17,7 @@ import {
   useRouteMatch,
   useParams,
 } from 'react-router-dom';
+import store from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -60,7 +62,9 @@ export default function App() {
             <InnerPage topics={topics} users={users} />
           </Route>
           <Route path="/airtable" exact>
-            <Airtable />
+            <Provider store={store}>
+              <Airtable />
+            </Provider>
           </Route>
           <Route path="/" exact>
             <Home topics={topics} users={users} />
