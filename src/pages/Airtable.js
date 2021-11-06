@@ -30,6 +30,9 @@ export default function Airtable() {
         <div>{item.Name}</div>
         <div>{item.Address}</div>
         <div>{item.Status}</div>
+        <div>
+          <button type="button">Follow</button>
+        </div>
       </li>
     );
   };
