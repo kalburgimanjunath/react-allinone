@@ -26,6 +26,7 @@ import * as data from './data/data.js';
 import Home from './pages/Home';
 import InnerPage from './pages/InnerPage';
 import Airtable from './pages/Airtable';
+import TodoApp from './pages/TodoApp';
 export default function App() {
   let [users, setusers] = useState(null);
   // const {topics} = data;
@@ -65,6 +66,9 @@ export default function App() {
             <Provider store={store}>
               <Airtable />
             </Provider>
+          </Route>
+          <Route path="/todoapp" exact>
+            <Provider store={store}>{/* <TodoApp /> */}</Provider>
           </Route>
           <Route path="/" exact>
             <Home topics={topics} users={users} />
