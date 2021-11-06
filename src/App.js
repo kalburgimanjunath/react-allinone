@@ -17,7 +17,7 @@ import {
   useRouteMatch,
   useParams,
 } from 'react-router-dom';
-import store from './store';
+import store from './app/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -27,6 +27,7 @@ import Home from './pages/Home';
 import InnerPage from './pages/InnerPage';
 import Airtable from './pages/Airtable';
 import TodoApp from './pages/TodoApp';
+import { User } from './features/users/User';
 export default function App() {
   let [users, setusers] = useState(null);
   // const {topics} = data;
@@ -68,7 +69,9 @@ export default function App() {
             </Provider>
           </Route>
           <Route path="/todoapp" exact>
-            <Provider store={store}>{/* <TodoApp /> */}</Provider>
+            <Provider store={store}>
+              <User />
+            </Provider>
           </Route>
           <Route path="/" exact>
             <Home topics={topics} users={users} />
