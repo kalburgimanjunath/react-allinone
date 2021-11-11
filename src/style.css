@@ -1,3 +1,4 @@
+@import './styles/draftjs.css';
 .form .error {
   color: red;
 }

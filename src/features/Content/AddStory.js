@@ -6,7 +6,7 @@ import { add } from './ContentSlice';
 import TextEditor from './TextEditor';
 export default function AddStory({ close }) {
   const [needToClose, setClose] = useState({ close });
-
+  const text = useState('sample text');
   const dispatch = useDispatch();
   const FormValidatorScheme = Yup.object().shape({
     title: Yup.string()
@@ -46,10 +46,17 @@ export default function AddStory({ close }) {
               <div>{errors.subheading}</div>
             )}
             <br />
-            {/* <Field name="content" placeholder="content" /> */}
+            <Field
+              type="textarea"
+              name="content"
+              rows="4"
+              cols="40"
+              placeholder="content"
+            />
+
             <TextEditor
               className="error"
-              name="content"
+              name="content1"
               placeholder="content"
             />
             {/* If this field has been touched, and it contains an error, display
