@@ -40,7 +40,7 @@ export default function Content() {
           {listStory}
         </>
       )}
-      <TextEditor />
+
       {/* Story list with edit and delete,archive list*/}
     </div>
   );

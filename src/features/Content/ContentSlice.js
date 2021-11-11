@@ -4,7 +4,7 @@ const ContentSlice = createSlice({
   initialState: [],
   reducers: {
     add: (state, action) => {
-      // console.log(action);
+      console.log(action);
       state.push(action.payload);
     },
   },

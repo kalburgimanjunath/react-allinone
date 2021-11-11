@@ -3,6 +3,7 @@ import { Form, Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { add } from './ContentSlice';
+import TextEditor from './TextEditor';
 export default function AddStory({ close }) {
   const [needToClose, setClose] = useState({ close });
 
@@ -45,7 +46,12 @@ export default function AddStory({ close }) {
               <div>{errors.subheading}</div>
             )}
             <br />
-            <Field name="content" placeholder="content" />
+            {/* <Field name="content" placeholder="content" /> */}
+            <TextEditor
+              className="error"
+              name="content"
+              placeholder="content"
+            />
             {/* If this field has been touched, and it contains an error, display
            it */}
             {touched.content && errors.content && <div>{errors.content}</div>}
