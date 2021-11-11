@@ -1,20 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 const ContentSlice = createSlice({
   name: 'content',
-  initialState: [
-    {
-      id: 1,
-      title: 'story title',
-      subheading: 'subheading',
-      content: 'lorem text',
-    },
-  ],
+  initialState: [],
   reducers: {
     add: (state, action) => {
-      console.log(action);
-      state.concat(action);
-      // state.id += 1;
+      // console.log(action);
+      state.push(action.payload);
     },
+  },
+  prepare: (text) => {
+    const id = nanoid();
+    return { payload: { id, text } };
   },
 });
 export const { add } = ContentSlice.actions;
