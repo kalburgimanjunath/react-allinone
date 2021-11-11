@@ -30,6 +30,7 @@ import TodoApp from './pages/TodoApp';
 import { User } from './features/users/User';
 import Login from './features/Login/Login';
 import Signup from './features/Signup/Signup';
+import Content from './features/Content/Content';
 export default function App() {
   let [users, setusers] = useState(null);
   // const {topics} = data;
@@ -80,6 +81,9 @@ export default function App() {
           </Route>
           <Route path="/signup">
             <Signup />
+          </Route>
+          <Route path="/content">
+            <Content />
           </Route>
           <Route path="/" exact>
             <Home topics={topics} users={users} />
