@@ -30,7 +30,7 @@ export default function Header({ title }) {
                 Something else here
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="./airtable">Airtable</Nav.Link>
+            <Nav.Link href="./airtable">From Airtable</Nav.Link>
             <Nav.Link href="./todoapp">Todo App</Nav.Link>
           </Nav>
           <Form className="d-flex">

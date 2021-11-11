@@ -9,20 +9,6 @@ import UserPhoto from '../core/UserPhoto';
 export default function Airtable() {
   const [users, setUser] = useState(null);
   const [posts, setPosts] = useState(null);
-  // const url1 =
-  //   'https://api.airtable.com/v0/app1uk6s6TI6oRTxZ/Users?&view=Grid%20view&&api_key=keyeNXyxxuuYJY19w';
-  // const url2 =
-  //   'https://api.airtable.com/v0/app1uk6s6TI6oRTxZ/Posts?&view=Grid%20view&&api_key=keyeNXyxxuuYJY19w';
-  // try {
-  //   const [item1, item2] = Promise.all([fetch(url1), fetch(url2)]).then(
-  //     ([item1, item2]) => {
-  //       setUser(item1);
-  //     }
-  //   );
-  // } catch (err) {
-  //   console.log(err);
-  // }
-
   useEffect(() => {
     fetch(
       'https://api.airtable.com/v0/app1uk6s6TI6oRTxZ/Users?&view=Grid%20view&&api_key=keyeNXyxxuuYJY19w'
@@ -30,8 +16,7 @@ export default function Airtable() {
       .then((res) => res.json())
       .then((data) => setUser(data.records))
       .catch((error) => console.log(error));
-  });
-  useEffect(() => {
+
     fetch(
       'https://api.airtable.com/v0/app1uk6s6TI6oRTxZ/Posts?&view=Grid%20view&&api_key=keyeNXyxxuuYJY19w'
     )
