@@ -83,7 +83,9 @@ export default function App() {
             <Signup />
           </Route>
           <Route path="/content">
-            <Content />
+            <Provider store={store}>
+              <Content />
+            </Provider>
           </Route>
           <Route path="/" exact>
             <Home topics={topics} users={users} />
