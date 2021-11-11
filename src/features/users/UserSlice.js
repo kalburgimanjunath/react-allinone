@@ -3,7 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 export const userSlice = createSlice({
   name: 'counter',
   initialState: {
-    name: '',
+    id: 1,
+    name: 'manjunath',
+    firstname: 'manjunath',
+    lastname: 'kalburgi',
+    avatar: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
   },
   reducers: {
     add: (state, newValue) => {
