@@ -36,13 +36,17 @@ export default function Tabs({ newComponent, type }) {
           onSelect={(k) => setKey(k)}
           className="mb-3"
         >
-          <Tab eventKey="home" title="Following ">
+          <Tab eventKey="trending" title="Trending ">
             {/* <newComponent /> */}
-            <Post title="Following" />
+            <Post title="Trending" />
           </Tab>
-          <Tab eventKey="profile" title="Recommended For You">
+          <Tab eventKey="latest" title="Latest">
             {/* <newComponent /> */}
-            <Post title="Recommended For You" />
+            <Post title="Latest" />
+          </Tab>
+          <Tab eventKey="best" title="Best">
+            {/* <newComponent /> */}
+            <Post title="Best" />
           </Tab>
         </Tabs>
       )}
