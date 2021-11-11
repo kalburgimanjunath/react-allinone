@@ -5,8 +5,18 @@ import Post from './Posts';
 
 export default function Tabs({ newComponent, type }) {
   const [key, setKey] = useState('trending');
-  console.log(type);
-
+  const tabs = [
+    { name: 'trending', title: 'Trending' },
+    { name: 'latest', title: 'Latest' },
+    { name: 'best', title: 'Best' },
+  ];
+  const tabsHead = tabs.map((item) => {
+    return (
+      <Tab eventKey={item.name} title={item.title}>
+        <Post title={item.title} />
+      </Tab>
+    );
+  });
   return (
     <>
       {type == 'inner' ? (
@@ -16,18 +26,16 @@ export default function Tabs({ newComponent, type }) {
           onSelect={(k) => setKey(k)}
           className="mb-3"
         >
-          <Tab eventKey="trending" title="Trending ">
-            {/* <newComponent /> */}
+          {/* <Tab eventKey="trending" title="Trending ">
             <Post title="Trending" />
           </Tab>
           <Tab eventKey="latest" title="Latest">
-            {/* <newComponent /> */}
             <Post title="Latest" />
           </Tab>
           <Tab eventKey="best" title="Best">
-            {/* <newComponent /> */}
             <Post title="Best" />
-          </Tab>
+          </Tab> */}
+          {tabsHead}
         </Tabs>
       ) : (
         <Tabs
@@ -36,18 +44,19 @@ export default function Tabs({ newComponent, type }) {
           onSelect={(k) => setKey(k)}
           className="mb-3"
         >
-          <Tab eventKey="trending" title="Trending ">
-            {/* <newComponent /> */}
+          {/* <Tab eventKey="trending" title="Trending ">
+            
             <Post title="Trending" />
           </Tab>
           <Tab eventKey="latest" title="Latest">
-            {/* <newComponent /> */}
+            
             <Post title="Latest" />
           </Tab>
           <Tab eventKey="best" title="Best">
-            {/* <newComponent /> */}
+            
             <Post title="Best" />
-          </Tab>
+          </Tab> */}
+          {tabsHead}
         </Tabs>
       )}
     </>

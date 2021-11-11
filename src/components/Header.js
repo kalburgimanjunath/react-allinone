@@ -18,7 +18,7 @@ export default function Header({ title }) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="./">Home</Nav.Link>
             <Nav.Link href="./login">Login</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
@@ -30,9 +30,8 @@ export default function Header({ title }) {
                 Something else here
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
+            <Nav.Link href="./airtable">Airtable</Nav.Link>
+            <Nav.Link href="./todoapp">Todo App</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <FormControl

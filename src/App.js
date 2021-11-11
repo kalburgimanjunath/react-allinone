@@ -28,6 +28,7 @@ import InnerPage from './pages/InnerPage';
 import Airtable from './pages/Airtable';
 import TodoApp from './pages/TodoApp';
 import { User } from './features/users/User';
+import Login from './features/Login/Login';
 export default function App() {
   let [users, setusers] = useState(null);
   // const {topics} = data;
@@ -72,6 +73,9 @@ export default function App() {
             <Provider store={store}>
               <User />
             </Provider>
+          </Route>
+          <Route path="/login" exact>
+            <Login />
           </Route>
           <Route path="/" exact>
             <Home topics={topics} users={users} />
