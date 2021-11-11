@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import AddStory from './AddStory';
 import { useSelector, useDispatch } from 'react-redux';
-import { add } from './ContentSlice';
+
+import { add, deletion } from './ContentSlice';
 import TextEditor from './TextEditor';
 export default function Content() {
   const stories = useSelector((state) => state.stories);
   const count = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   const [isAddStory, setAddStory] = useState(true);
+  const onDelete = () => {
+    dispatch(deletion);
+  };
   const listStory = stories.map((item) => (
     <div key={item.id}>
       <div>{item.id}</div>
@@ -15,6 +20,9 @@ export default function Content() {
         <div>{item.title}</div>
       </a>
       <a href={`./delete/${item.title}`}>Edit</a>
+      <button type="button" onClick={onDelete}>
+        Delete
+      </button>
       <div>{item.subheading}</div>
       <div>{item.content}</div>
     </div>
