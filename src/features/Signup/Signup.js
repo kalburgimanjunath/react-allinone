@@ -1,22 +1,30 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-export default function Login() {
+import { Form, Formik, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+export default function Signup() {
+  const SignupSchema = yup.scheme;
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Signup</h1>
       <Formik
-        initialValues={{ email: '', password: '' }}
-        validate={(values) => {
-          const errors = {};
-          if (!values.email) {
-            errors.email = 'Required';
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = 'Invalid email address';
-          }
-          return errors;
+        initialValues={{
+          displayname: '',
+          firstname: '',
+          lastname: '',
+          email: '',
         }}
+        validationSchema={SignupSchema}
+        // validate={(values) => {
+        //   const errors = {};
+        //   if (!values.email) {
+        //     errors.email = 'Required';
+        //   } else if (
+        //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        //   ) {
+        //     errors.email = 'Invalid email address';
+        //   }
+        //   return errors;
+        // }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             console.log(JSON.stringify(values, null, 2));
@@ -36,7 +44,6 @@ export default function Login() {
             <button type="submit" disabled={isSubmitting}>
               Submit
             </button>
-            <a href="./signup">Signup</a>
           </Form>
         )}
       </Formik>

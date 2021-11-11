@@ -29,6 +29,7 @@ import Airtable from './pages/Airtable';
 import TodoApp from './pages/TodoApp';
 import { User } from './features/users/User';
 import Login from './features/Login/Login';
+import Signup from './features/Signup/Signup';
 export default function App() {
   let [users, setusers] = useState(null);
   // const {topics} = data;
@@ -74,8 +75,11 @@ export default function App() {
               <User />
             </Provider>
           </Route>
-          <Route path="/login" exact>
+          <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
           </Route>
           <Route path="/" exact>
             <Home topics={topics} users={users} />
