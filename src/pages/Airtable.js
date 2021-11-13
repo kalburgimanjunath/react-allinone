@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import { Avatar } from './components/Avatar';
 import { Counter } from '../features/counter/Counter';
 import UserPhoto from '../core/UserPhoto';
+import Courses from '../features/courses/Courses';
 
 export default function Airtable() {
   const [users, setUser] = useState(null);
@@ -50,6 +51,7 @@ export default function Airtable() {
   return (
     <div>
       Airtable
+      <Courses />
       <h1>Users</h1>
       {users &&
         users.map((item) => {

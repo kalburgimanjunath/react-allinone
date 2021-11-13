@@ -27,6 +27,8 @@ import Home from './pages/Home';
 import InnerPage from './pages/InnerPage';
 import Airtable from './pages/Airtable';
 import TodoApp from './pages/TodoApp';
+import AllCourses from './pages/AllCourses';
+import AllStories from './pages/AllStories';
 import { User } from './features/users/User';
 import Login from './features/Login/Login';
 import Signup from './features/Signup/Signup';
@@ -81,6 +83,12 @@ export default function App() {
           </Route>
           <Route path="/signup">
             <Signup />
+          </Route>
+          <Route path="/courses">
+            <AllCourses />
+          </Route>
+          <Route path="/stories">
+            <AllStories />
           </Route>
           <Route path="/content">
             <Provider store={store}>
