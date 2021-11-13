@@ -2,15 +2,34 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { EditorState } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+// import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 export default function Stories() {
   const [title, setTitle] = useState('');
   const [subheading, setSubheading] = useState('');
   const [content, setContent] = useState('');
-  const resetFields = () => {
-    setTitle('');
-    setSubheading('');
-    setContent('');
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
+
+  const onEditorStateChange = (editorState) => {
+    setEditorState(editorState);
   };
+
+  const MyInput = () => {
+    return (
+      <div className="RichEditor-root">
+        <Editor
+          editorState={editorState}
+          wrapperClassName="demo-wrapper"
+          editorClassName="demo-editor"
+          onEditorStateChange={onEditorStateChange}
+        />
+      </div>
+    );
+  };
+
   const submitCourse = () => {
     const requestOptions = {
       method: 'POST',
@@ -28,7 +47,6 @@ export default function Stories() {
       'https://api.airtable.com/v0/app3vNDJKkwYgu4Al/Stories?&view=Grid%20view&&api_key=keyeNXyxxuuYJY19w',
       requestOptions
     ).then((response) => response.json());
-    // resetFields();
     // .then((data) => console.log(data));
   };
 
@@ -49,7 +67,6 @@ export default function Stories() {
       'https://api.airtable.com/v0/app3vNDJKkwYgu4Al/Stories?&view=Grid%20view&&api_key=keyeNXyxxuuYJY19w',
       requestOptions
     ).then((response) => response.json());
-    // resetFields();
     // .then((data) => console.log(data));
   };
   const deleteCourse = () => {};
@@ -67,6 +84,7 @@ export default function Stories() {
             <input
               type="text"
               name="name"
+              placeholder="Title"
               onChange={(e) => setTitle(e.target.value)}
             />
             <br />
@@ -74,6 +92,7 @@ export default function Stories() {
             <input
               type="text"
               name="subheading"
+              placeholder="Sub heading"
               onChange={(e) => setSubheading(e.target.value)}
             />
             <br />
@@ -81,9 +100,12 @@ export default function Stories() {
             <input
               type="text"
               name="content"
+              placeholder="Content"
               onChange={(e) => setContent(e.target.value)}
             />
             <br />
+            <br />
+            <MyInput />
             <button type="button" onClick={submitCourse}>
               Add
             </button>
