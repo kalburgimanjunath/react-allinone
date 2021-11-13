@@ -5,6 +5,12 @@ import Col from 'react-bootstrap/Col';
 export default function Stories() {
   const [title, setTitle] = useState('');
   const [subheading, setSubheading] = useState('');
+  const [content, setContent] = useState('');
+  const resetFields = () => {
+    setTitle('');
+    setSubheading('');
+    setContent('');
+  };
   const submitCourse = () => {
     const requestOptions = {
       method: 'POST',
@@ -13,7 +19,7 @@ export default function Stories() {
         fields: {
           Title: title,
           Subheading: subheading,
-          content: 'test123',
+          content: content,
           Status: 'Published',
         },
       }),
@@ -22,8 +28,10 @@ export default function Stories() {
       'https://api.airtable.com/v0/app3vNDJKkwYgu4Al/Stories?&view=Grid%20view&&api_key=keyeNXyxxuuYJY19w',
       requestOptions
     ).then((response) => response.json());
+    // resetFields();
     // .then((data) => console.log(data));
   };
+  const deleteCourse = () => {};
   return (
     <Container>
       <Row>
@@ -46,6 +54,13 @@ export default function Stories() {
               type="text"
               name="subheading"
               onChange={(e) => setSubheading(e.target.value)}
+            />
+            <br />
+            <label>Content</label>
+            <input
+              type="text"
+              name="content"
+              onChange={(e) => setContent(e.target.value)}
             />
             <br />
             <button type="button" onClick={submitCourse}>

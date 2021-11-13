@@ -11,6 +11,18 @@ export default function AllStories() {
       .catch((error) => console.log(error));
   });
   // console.log(Stories);
+  const deleteItem = (item) => {
+    console.log('clicked' + item);
+    const requestOptions = {
+      method: 'DELETE',
+    };
+    fetch(
+      'https://api.airtable.com/v0/app3vNDJKkwYgu4Al/Stories/${item}?api_key=keyeNXyxxuuYJY19w',
+      requestOptions
+    )
+      .then((response) => response.json())
+      .catch((error) => console.log(error));
+  };
   const StoriesDetail = ({ item }) => {
     return <div>{item.Title}</div>;
   };
@@ -23,6 +35,10 @@ export default function AllStories() {
           return (
             <div>
               <StoriesDetail item={item.fields} />
+              {item.id}
+              <button onClick={() => deleteItem(item.id)} item={item.id}>
+                Delete
+              </button>
             </div>
           );
         })}
