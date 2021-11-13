@@ -5,6 +5,11 @@ import Col from 'react-bootstrap/Col';
 import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
+import AddStory from './AddStory';
+
 // import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 export default function Stories() {
   const [title, setTitle] = useState('');
@@ -119,7 +124,7 @@ export default function Stories() {
     ).then((response) => response.json());
     // .then((data) => console.log(data));
   };
-  const deleteCourse = () => {};
+
   return (
     <Container>
       <Row>
@@ -129,7 +134,8 @@ export default function Stories() {
       </Row>
       <Row>
         <Col>
-          <form method="post">
+          <AddStory />
+          {/* <form method="post">
             <label>Title</label>
             <input
               type="text"
@@ -155,17 +161,18 @@ export default function Stories() {
             />
             <br />
             <label>Content</label>
-            {/* <input
+            <input
               type="text"
               name="content"
               placeholder="Content"
               onChange={(e) => setContent(e.target.value)}
-            /> */}
+            />
             <MyInput />
             <button type="button" onClick={submitCourse}>
-              Add
+              Add <i className="fa-solid fa-plus"></i>
+              <FontAwesomeIcon icon={faPlus} size="lg" />
             </button>
-          </form>
+          </form> */}
         </Col>
       </Row>
     </Container>

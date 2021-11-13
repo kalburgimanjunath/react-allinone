@@ -90,6 +90,9 @@ export default function App() {
           <Route path="/stories">
             <AllStories />
           </Route>
+          <Route path="/stories">
+            <AllStories />
+          </Route>
           <Route path="/content">
             <Provider store={store}>
               <Content />

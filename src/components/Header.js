@@ -21,6 +21,8 @@ export default function Header({ title }) {
             <Nav.Link href="./">Home</Nav.Link>
             <Nav.Link href="./login">Login</Nav.Link>
             <Nav.Link href="./content">Content</Nav.Link>
+            <Nav.Link href="./stories">Stories</Nav.Link>
+            <Nav.Link href="./lectures">Lectures</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
