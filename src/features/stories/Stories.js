@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { EditorState } from 'draft-js';
+import { EditorState, convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
+import draftToHtml from 'draftjs-to-html';
 // import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 export default function Stories() {
   const [title, setTitle] = useState('');
@@ -15,17 +16,63 @@ export default function Stories() {
 
   const onEditorStateChange = (editorState) => {
     setEditorState(editorState);
+    setContent(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+  };
+  const uploadImageCallBack = (file) => {
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://api.imgur.com/3/image');
+      xhr.setRequestHeader('Authorization', 'Client-ID XXXXX');
+      const data = new FormData();
+      data.append('image', file);
+      xhr.send(data);
+      xhr.addEventListener('load', () => {
+        const response = JSON.parse(xhr.responseText);
+        resolve(response);
+      });
+      xhr.addEventListener('error', () => {
+        const error = JSON.parse(xhr.responseText);
+        reject(error);
+      });
+    });
   };
 
   const MyInput = () => {
     return (
-      <div className="RichEditor-root">
+      <div className="">
         <Editor
+          name="editor"
           editorState={editorState}
           wrapperClassName="demo-wrapper"
           editorClassName="demo-editor"
           onEditorStateChange={onEditorStateChange}
+          toolbar={{
+            inline: { inDropdown: true },
+            list: { inDropdown: true },
+            textAlign: { inDropdown: true },
+            link: { inDropdown: true },
+            history: { inDropdown: true },
+          }}
+          mention={{
+            separator: ' ',
+            trigger: '@',
+            suggestions: [
+              { text: 'APPLE', value: 'apple', url: 'apple' },
+              { text: 'BANANA', value: 'banana', url: 'banana' },
+              { text: 'CHERRY', value: 'cherry', url: 'cherry' },
+              { text: 'DURIAN', value: 'durian', url: 'durian' },
+              { text: 'EGGFRUIT', value: 'eggfruit', url: 'eggfruit' },
+              { text: 'FIG', value: 'fig', url: 'fig' },
+              { text: 'GRAPEFRUIT', value: 'grapefruit', url: 'grapefruit' },
+              { text: 'HONEYDEW', value: 'honeydew', url: 'honeydew' },
+            ],
+          }}
+          hashtag={{}}
         />
+        {/* <textarea
+          disabled
+          value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
+        /> */}
       </div>
     );
   };
@@ -43,6 +90,7 @@ export default function Stories() {
         },
       }),
     };
+    console.log(requestOptions.body);
     fetch(
       'https://api.airtable.com/v0/app3vNDJKkwYgu4Al/Stories?&view=Grid%20view&&api_key=keyeNXyxxuuYJY19w',
       requestOptions
@@ -97,14 +145,12 @@ export default function Stories() {
             />
             <br />
             <label>Content</label>
-            <input
+            {/* <input
               type="text"
               name="content"
               placeholder="Content"
               onChange={(e) => setContent(e.target.value)}
-            />
-            <br />
-            <br />
+            /> */}
             <MyInput />
             <button type="button" onClick={submitCourse}>
               Add
