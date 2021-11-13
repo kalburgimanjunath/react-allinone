@@ -9,6 +9,7 @@ import draftToHtml from 'draftjs-to-html';
 export default function Stories() {
   const [title, setTitle] = useState('');
   const [subheading, setSubheading] = useState('');
+  const [image, setImage] = useState('');
   const [content, setContent] = useState('');
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
@@ -87,6 +88,7 @@ export default function Stories() {
           Subheading: subheading,
           content: content,
           Status: 'Published',
+          Tags: 'money',
         },
       }),
     };
@@ -134,6 +136,14 @@ export default function Stories() {
               name="name"
               placeholder="Title"
               onChange={(e) => setTitle(e.target.value)}
+            />
+            <br />
+            <label>Image</label>
+            <input
+              type="file"
+              name="image"
+              placeholder="image"
+              onChange={(e) => setImage(e.target.value)}
             />
             <br />
             <label>Sub heading</label>

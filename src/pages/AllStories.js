@@ -46,7 +46,14 @@ export default function AllStories() {
   //     .catch((error) => console.log(error));
   // };
   const StoriesDetail = ({ item }) => {
-    return <div>{item.Title}</div>;
+    return (
+      <>
+        <td>{item.Title}</td>
+        <td>{item.Subheading}</td>
+        <td>{item.content}</td>
+        <td>{item.Tags}</td>
+      </>
+    );
   };
   // console.log(story);
   return (
@@ -58,6 +65,9 @@ export default function AllStories() {
           <tr>
             <th>#</th>
             <th>Title</th>
+            <th>Subheading</th>
+            <th>Content</th>
+            <th>Tags</th>
             <th>Delete</th>
             <th>Edit</th>
           </tr>
@@ -67,9 +77,7 @@ export default function AllStories() {
             return (
               <tr>
                 <td>{item.id}</td>
-                <td>
-                  <StoriesDetail item={item.fields} />
-                </td>
+                <StoriesDetail item={item.fields} />
                 <td>
                   <button
                     className="btn btn-primary"
