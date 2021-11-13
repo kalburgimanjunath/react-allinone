@@ -31,6 +31,27 @@ export default function Stories() {
     // resetFields();
     // .then((data) => console.log(data));
   };
+
+  const updateCourse = () => {
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fields: {
+          Title: title,
+          Subheading: subheading,
+          content: content,
+          Status: 'Published',
+        },
+      }),
+    };
+    fetch(
+      'https://api.airtable.com/v0/app3vNDJKkwYgu4Al/Stories?&view=Grid%20view&&api_key=keyeNXyxxuuYJY19w',
+      requestOptions
+    ).then((response) => response.json());
+    // resetFields();
+    // .then((data) => console.log(data));
+  };
   const deleteCourse = () => {};
   return (
     <Container>
