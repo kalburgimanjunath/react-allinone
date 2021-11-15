@@ -12,10 +12,10 @@ import AddIdea from './AddIdea';
 
 // import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 export default function Ideas() {
-  const [problem, setTitle] = useState('');
-  const [subheading, setSubheading] = useState('');
-  const [image, setImage] = useState('');
-  const [content, setContent] = useState('');
+  // const [problem, setProblem] = useState('');
+  // const [proposed_solution, setProposedSolution] = useState('');
+  const earlyadaptors = '';
+
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );

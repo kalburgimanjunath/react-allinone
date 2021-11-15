@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,18 +7,28 @@ import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export default function AddIdea() {
+  const [problem, setProblem] = useState('');
+  const [proposed_solution, setProposedSolution] = useState('');
+  const [earlyadaptors, setEarlyAdaptors] = useState('');
+  const [value_proposition, setValueProposition] = useState('');
+  const [alternate_solutions, setAlternateSolutions] = useState('');
+  const [measurements, setMeasurements] = useState('');
+  const [revenue_metrix, setRevenueMetrix] = useState('');
+  const [cost_metrix, setCostMetrix] = useState('');
+  const [target_segment, setTargetSegment] = useState('');
+  const [existing_alternatives, setExistingAlternatives] = useState('');
   const submitIdea = () => {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         fields: {
-          'Problem': problem,
+          Problem: problem,
           'Proposed Solution': proposed_solution,
-          'Early Adaptors': content,
+          'Early Adaptors': earlyadaptors,
           'Value Proposition': value_proposition,
           'Alternate Solutions': alternate_solutions,
-          'Measurements': measurements,
+          Measurement: measurements,
           'Revenue Metrix': revenue_metrix,
           'Cost Metrix': cost_metrix,
           'Target Segment': target_segment,
@@ -84,7 +94,7 @@ export default function AddIdea() {
           type="text"
           name="problem"
           placeholder="Problem"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setProblem(e.target.value)}
         />
         <br />
         <label>Proposed Solution</label>
@@ -92,7 +102,7 @@ export default function AddIdea() {
           type="text"
           name="proposed_solution"
           placeholder="Proposed Solution"
-          onChange={(e) => setImage(e.target.value)}
+          onChange={(e) => setProposedSolution(e.target.value)}
         />
         <br />
         <label>Early Adaptors</label>
@@ -100,7 +110,7 @@ export default function AddIdea() {
           type="text"
           name="earlyadaptor"
           placeholder="Early Adaptors"
-          onChange={(e) => setSubheading(e.target.value)}
+          onChange={(e) => setEarlyAdaptors(e.target.value)}
         />
         <br />
         <label>Value Proposition</label>
@@ -108,7 +118,7 @@ export default function AddIdea() {
           type="text"
           name="value_proposition"
           placeholder="Value Proposition"
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => setValueProposition(e.target.value)}
         />
         <br />
         <label>Alternate Solutions</label>
@@ -116,7 +126,7 @@ export default function AddIdea() {
           type="text"
           name="alternate_solutions"
           placeholder="Alternate Solutions"
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => setAlternateSolutions(e.target.value)}
         />
         <br />
         <label>Measurements</label>
@@ -124,7 +134,7 @@ export default function AddIdea() {
           type="text"
           name="measurements"
           placeholder="Measurements"
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => setMeasurements(e.target.value)}
         />
         <br />
         <label>Revenue Metrix</label>
@@ -132,7 +142,7 @@ export default function AddIdea() {
           type="text"
           name="revenue_metrix"
           placeholder="Revenue Metrix"
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => setRevenueMetrix(e.target.value)}
         />
         <br />
         <label>cost Metrix</label>
@@ -140,7 +150,7 @@ export default function AddIdea() {
           type="text"
           name="cost_metrix"
           placeholder="cost Metrix"
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => setCostMetrix(e.target.value)}
         />
         <br />
         <label>Target Segment</label>
@@ -148,7 +158,7 @@ export default function AddIdea() {
           type="text"
           name="target_segment"
           placeholder="Target Segment"
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => setTargetSegment(e.target.value)}
         />
         <br />
         <label>Existing Alernatives</label>
@@ -156,7 +166,7 @@ export default function AddIdea() {
           type="text"
           name="existing_alternatives"
           placeholder="Existing Alernatives"
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => setExistingAlternatives(e.target.value)}
         />
         <br />
         {/* <MyInput /> */}
