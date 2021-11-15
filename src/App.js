@@ -29,6 +29,7 @@ import Airtable from './pages/Airtable';
 import TodoApp from './pages/TodoApp';
 import AllCourses from './pages/AllCourses';
 import AllStories from './pages/AllStories';
+import AllIdeas from './pages/AllIdeas';
 import { User } from './features/users/User';
 import Login from './features/Login/Login';
 import Signup from './features/Signup/Signup';
@@ -90,8 +91,8 @@ export default function App() {
           <Route path="/stories">
             <AllStories />
           </Route>
-          <Route path="/stories">
-            <AllStories />
+          <Route path="/Ideas">
+            <AllIdeas />
           </Route>
           <Route path="/content">
             <Provider store={store}>
