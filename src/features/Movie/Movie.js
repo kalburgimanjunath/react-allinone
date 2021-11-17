@@ -19,7 +19,7 @@ export default function Movie() {
           <>
             <div>{item.original_title}</div>
             <div>
-              <img src={IMG_API + item.poster_path} />
+              <img width="50" src={IMG_API + item.poster_path} />
             </div>
           </>
         );
