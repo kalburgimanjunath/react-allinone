@@ -9,6 +9,7 @@ export default function Movie() {
       .then((response) => response.json())
       // 4. Setting *photos* to the image url that we received from the response above
       .then((data) => setMovies(data.results));
+      
   }, []);
   const IMG_API = 'https://image.tmdb.org/t/p/w500/';
   console.log(movies);
