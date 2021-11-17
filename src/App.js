@@ -34,6 +34,7 @@ import { User } from './features/users/User';
 import Login from './features/Login/Login';
 import Signup from './features/Signup/Signup';
 import Content from './features/Content/Content';
+import Movies from './features/Movie/Movie';
 export default function App() {
   let [users, setusers] = useState(null);
   // const {topics} = data;
@@ -97,6 +98,11 @@ export default function App() {
           <Route path="/content">
             <Provider store={store}>
               <Content />
+            </Provider>
+          </Route>
+          <Route path="/movie">
+            <Provider store={store}>
+              <Movies />
             </Provider>
           </Route>
           <Route path="/" exact>
