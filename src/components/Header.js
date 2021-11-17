@@ -19,6 +19,7 @@ export default function Header({ title }) {
             navbarScroll
           >
             <Nav.Link href="./">Home</Nav.Link>
+            <Nav.Link href="./movie">Movies</Nav.Link>
             <Nav.Link href="./login">Login</Nav.Link>
             <Nav.Link href="./content">Content</Nav.Link>
             <Nav.Link href="./stories">Stories</Nav.Link>
