@@ -35,6 +35,7 @@ import Login from './features/Login/Login';
 import Signup from './features/Signup/Signup';
 import Content from './features/Content/Content';
 import Movies from './features/Movie/Movie';
+import MPCLogin from './features/mpc/Login';
 export default function App() {
   let [users, setusers] = useState(null);
   // const {topics} = data;
@@ -103,6 +104,11 @@ export default function App() {
           <Route path="/movie">
             <Provider store={store}>
               <Movies />
+            </Provider>
+          </Route>
+          <Route path="/mpc">
+            <Provider store={store}>
+              <MPCLogin />
             </Provider>
           </Route>
           <Route path="/" exact>
